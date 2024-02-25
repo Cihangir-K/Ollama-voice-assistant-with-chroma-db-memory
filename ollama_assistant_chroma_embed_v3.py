@@ -76,7 +76,6 @@ def get_ai_response_w_db(input):
         # print("docs_splits:", docs_splits)
 
         #2. Convert documents to Embeddings and store them
-
         vectorestore = Chroma.from_documents(
                 documents=docs_splits2,
                 collection_name="rag-chroma",
@@ -85,7 +84,7 @@ def get_ai_response_w_db(input):
         retriever = vectorestore.as_retriever()
         # print("retriever: ",retriever)
 
-        after_rag_template = """"You are a helpful AI bot named jarvis:{context},
+        after_rag_template = """"You are a helpful AI bot named jarvis. Here is our chat history :{context}. Dont mention about chat history if not necessary. Give short answers that no more than two sentences.,
                                 "human", "Hello, how are you doing?"
                                 "ai", "I'm doing well, thanks!"
                                 Question: {question}
@@ -109,7 +108,7 @@ def get_ai_response_w_db(input):
             length_function=len
         )
 
-        things_to_split=str("user said: "+input+"/n"+"AI said: "+output+"/n")
+        things_to_split=str("user said: "+input+"\n"+"AI said: "+output+"\n")
         # print("things_to_split: ",things_to_split)
         docs_splits = text_splitter.split_text(things_to_split)
         docs_splits2 = text_splitter.create_documents(docs_splits)
@@ -234,7 +233,8 @@ while True:
 
                     response=get_ai_response_w_db(user_input)
                     # print("response of ai raw:",response)
-                    print('\033[93m'+"Yapay Zeka Yaniti:", response)
+                    # print('\033[93m'+"Yapay Zeka Yaniti:", response)
+
                     # Sohbet gecmisine inputu ekle
                     # chat_history.append(remove_non_ascii_characters(user_input))        
                     # Sohbet gecmisine yaniti ekle
