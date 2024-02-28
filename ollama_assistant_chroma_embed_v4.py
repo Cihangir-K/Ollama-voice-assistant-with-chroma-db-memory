@@ -100,7 +100,10 @@ def get_ai_response_w_db(input):
         retriever = vectorestore.as_retriever()
         # print("retriever: ",retriever)
 
-        after_rag_template = """"You are a helpful AI bot named David. Here is our chat history :{context}. Dont mention about chat history if not necessary. Give short answers that no more than two sentences.,
+        after_rag_template = """"You are a helpful AI bot named David. when you recieve English content you answer in English, 
+                                when you recieve Turkish content you answer in Turkish. 
+                                Here is our chat history :{context}. Dont mention about chat history if not necessary. 
+                                Give short answers that no more than 4 sentences.,
                                 "human", "Hello, how are you doing?"
                                 "ai", "I'm doing well, thanks!"
                                 Question: {question}
