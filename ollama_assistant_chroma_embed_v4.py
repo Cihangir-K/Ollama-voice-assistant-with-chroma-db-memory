@@ -50,6 +50,7 @@ client = OpenAI(
                 api_key='ollama',
     )
 
+# model_local =ChatOllama(model='stablelm-zephyr')
 model_local =ChatOllama(model='openhermes')
 # model_local =ChatOllama(model='mistral')
 
@@ -205,11 +206,12 @@ while True:
         # user_input = recognizer.recognize_google(audio_data)
         print('\033[94m'+"Kullanici Girdisi:", user_input)
         
+        ai_name = "computer"
         kapat=1
-        if "david" in user_input.lower():
+        if ai_name in user_input.lower():
 
             # hello boss 
-            voice.say("Hello Boss! I am listening")
+            voice.say("Hello! I am listening")
             voice.setProperty('rate', 145)  # speed of reading 145 lower number slower speech
 
             voice.runAndWait()
@@ -226,7 +228,7 @@ while True:
                     print("user_input ",user_input)
 
                     close_control= user_input.lower()
-                if "close david" in close_control:
+                if "close "+ ai_name in close_control:
                     kapat=0
                     print("Kapat geldi")                    
                     voice.say("Good byee!")
