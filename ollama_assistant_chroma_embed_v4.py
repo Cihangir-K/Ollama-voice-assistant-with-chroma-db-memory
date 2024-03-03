@@ -23,10 +23,10 @@ def detect_language(text):
     except:
         return "Unknown"
 
-# # Example usage
-# sentence = "Merhaba, nasılsınız?"
-# language = detect_language(sentence)
-# print("Detected language:", language)
+    # # Example usage
+    # sentence = "Merhaba, nasılsınız?"
+    # language = detect_language(sentence)
+    # print("Detected language:", language)
 
 
 def remove_non_ascii_characters(s):
@@ -35,14 +35,14 @@ def remove_non_ascii_characters(s):
     """
     return ''.join(c for c in s if unicodedata.category(c)[0] != 'C')
 
-    # HEADER = '\033[95m'
-    # MAVI = '\033[94m'
-    # YESIL = '\033[92m'
-    # SARI = '\033[93m'
-    # KIRMIZI = '\033[91m'
-    # BEYAZ = '\033[0m'
-    # BOLD = '\033[1m'
-    # UNDERLINE = '\033[4m'
+ # HEADER = '\033[95m'
+# MAVI = '\033[94m'
+# YESIL = '\033[92m'
+# SARI = '\033[93m'
+# KIRMIZI = '\033[91m'
+# BEYAZ = '\033[0m'
+# BOLD = '\033[1m'
+# UNDERLINE = '\033[4m'
 
 
 client = OpenAI(
@@ -197,7 +197,7 @@ while True:
             recognizer.adjust_for_ambient_noise(source)  # Calibrate the recognizer
             print("Listened for ambient noise ...")
             # beep()
-            print("Dinliyorum...")
+            print('\033[91m'+"Dinliyorum...")
             audio_data = recognizer.listen(source)
 
         # Ses verisini metne cevir
@@ -206,7 +206,8 @@ while True:
         # user_input = recognizer.recognize_google(audio_data)
         print('\033[94m'+"Kullanici Girdisi:", user_input)
         
-        ai_name = "computer"
+        # ai_name = "jarvis"
+        ai_name = "david"
         kapat=1
         if ai_name in user_input.lower():
 
@@ -225,12 +226,12 @@ while True:
                     print("Listening to answer.")
                     audio_data = recognizer.listen(source)
                     user_input = recognizer.recognize_whisper(audio_data)
-                    print("user_input ",user_input)
+                    print('\033[93m'+"user_input ",user_input)
 
                     close_control= user_input.lower()
                 if "close "+ ai_name in close_control:
                     kapat=0
-                    print("Kapat geldi")                    
+                    print('\033[91m'+"Kapat geldi")                    
                     voice.say("Good byee!")
                     voice.setProperty('rate', 145)  # speed of reading 145
                     voice.runAndWait()
@@ -238,6 +239,7 @@ while True:
 
                 elif "exit" in user_input.lower():
                     kapat=0
+                    voice.setProperty('voice', voices[0].id) # türkçe dil için 1 ingilizce için 0erkek ve 2bayan
                     voice.say("Exiting! Good byee!")
                     voice.setProperty('rate', 145)  # speed of reading 145
                     voice.runAndWait()
@@ -246,10 +248,11 @@ while True:
 
                 elif "thank you" in user_input.lower():
                     kapat=0
+                    voice.setProperty('voice', voices[0].id) # türkçe dil için 1 ingilizce için 0erkek ve 2bayan
                     voice.say("Your welcome! Good byee!")
                     voice.setProperty('rate', 145)  # speed of reading 145
                     voice.runAndWait()
-                    print("Exit geldi, Cikis yapiliyor...")
+                    print('\033[91m'+"Exit geldi, Cikis yapiliyor...")
                     break
                 else:
                     kapat=1
@@ -278,7 +281,7 @@ while True:
 
                         file.write(str(for_writer)+"\n")
                     except sr.RequestError as e:
-                        print("Yazmada Sorun yasandi",e)
+                        print('\033[91m'+"Yazmada Sorun yasandi",e)
                         # print("Yazmada Sorun yasandi; {0}".format(e))  
                         pass                 
 
@@ -307,9 +310,10 @@ while True:
 
         elif "exit" in user_input.lower():
             voice.say("Exiting! Good byee!")
+            voice.setProperty('voice', voices[0].id) # türkçe dil için 1 ingilizce için 0erkek ve 2bayan
             voice.setProperty('rate', 145)  # speed of reading 145
             voice.runAndWait()
-            print("Exit geldi, Cikis yapiliyor...")
+            print('\033[91m'+"Exit geldi, Cikis yapiliyor...")
             file.close()
             break
         
