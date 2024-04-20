@@ -99,12 +99,12 @@ client = OpenAI(
 # model_local =ChatOllama(model='gemma:instruct')
 
 # model_local =ChatOllama(model='llama3:8b') #calismadi
-model_local =ChatOllama(model='llama3:instruct') #calismadi
+# model_local =ChatOllama(model='llama3:instruct') #calismadi
 
 
 
 #google gemini api 
-# model_local = "gemini"
+model_local = "gemini"
 
 # safety_settings = [
 #   {
