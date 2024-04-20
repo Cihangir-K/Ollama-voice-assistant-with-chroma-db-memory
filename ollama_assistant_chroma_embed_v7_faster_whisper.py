@@ -87,7 +87,7 @@ client = OpenAI(
     )
 
 
-# model_local =ChatOllama(model='cas/minicpm-3b-openhermes-2.5-v2') 
+model_local =ChatOllama(model='cas/minicpm-3b-openhermes-2.5-v2') 
 # model_local =ChatOllama(model='stablelm-zephyr')
 # model_local =ChatOllama(model='openhermes') 
 # model_local =ChatOllama(model='mistral')
@@ -103,7 +103,7 @@ client = OpenAI(
 
 
 #google gemini api 
-model_local = "gemini"
+# model_local = "gemini"
 
 # safety_settings = [
 #   {
@@ -394,7 +394,7 @@ if "yes" == str(choise):
                 voice.runAndWait()
                 # tekrar dinlemeye başla 
 
-                beep()
+                # beep()
                 while kapat == 1:
                     
                     with sr.Microphone() as source:
