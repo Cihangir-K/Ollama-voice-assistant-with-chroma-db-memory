@@ -8,6 +8,7 @@ pip install chromadb
 speech_recognition pyttsx3 openai platform unicodedata
 
 pip install langdetect
+pip install faster-whisper
 
 ollama pull nomic-embed-text
 ollama run mistral 
