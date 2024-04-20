@@ -87,7 +87,7 @@ client = OpenAI(
     )
 
 
-model_local =ChatOllama(model='cas/minicpm-3b-openhermes-2.5-v2') 
+# model_local =ChatOllama(model='cas/minicpm-3b-openhermes-2.5-v2') 
 # model_local =ChatOllama(model='stablelm-zephyr')
 # model_local =ChatOllama(model='openhermes') 
 # model_local =ChatOllama(model='mistral')
@@ -99,6 +99,7 @@ model_local =ChatOllama(model='cas/minicpm-3b-openhermes-2.5-v2')
 # model_local =ChatOllama(model='gemma:instruct')
 
 # model_local =ChatOllama(model='llama3:8b') #calismadi
+model_local =ChatOllama(model='llama3:instruct') #calismadi
 
 
 

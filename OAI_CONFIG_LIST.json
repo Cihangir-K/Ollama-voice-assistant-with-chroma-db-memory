@@ -1,0 +1,83 @@
+[
+    {
+        "model": "Mistral",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "gemma:7b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "gemma",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },    
+    {
+        "model": "gemma:2b-instruct",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "phi",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "stablelm-zephyr",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "openhermes",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "cas/minicpm-3b-openhermes-2.5-v2",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "cas/adrienbrault/nous-hermes2pro:Q5_K_S",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "mistral_turkish",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "experiment26",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "llava",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "opencodeinterpreter-ds",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "gemma:instruct",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "llama3:8b",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    },
+    {
+        "model": "llama3:instruct",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
+    }
+
+]
