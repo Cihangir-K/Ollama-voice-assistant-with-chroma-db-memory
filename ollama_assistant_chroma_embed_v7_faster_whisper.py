@@ -28,6 +28,8 @@ import time
 
 
 wake_word = 'jarvis'
+# wake_word = 'pudding'
+
 listening_for_wake_word = True
 
 whisper_size ='tiny'
@@ -44,10 +46,6 @@ def wav_to_text(audio_path):
     segments, _ =whisper_model.transcribe(audio_path)
     text = ''.join(segment.text for segment in segments)
     return text
-
-
-
-
 
 
 
@@ -89,6 +87,7 @@ client = OpenAI(
 
 # model_local =ChatOllama(model='cas/minicpm-3b-openhermes-2.5-v2') 
 # model_local =ChatOllama(model='stablelm-zephyr')
+model_local =ChatOllama(model='dolphin-llama3')
 # model_local =ChatOllama(model='openhermes') 
 # model_local =ChatOllama(model='mistral')
 # model_local =ChatOllama(model='experiment26')
@@ -98,13 +97,10 @@ client = OpenAI(
 # model_local =ChatOllama(model='adrienbrault/nous-hermes2pro:Q5_K_S')
 # model_local =ChatOllama(model='gemma:instruct')
 
-# model_local =ChatOllama(model='llama3:8b') #calismadi
-# model_local =ChatOllama(model='llama3:instruct') #calismadi
-
 
 
 #google gemini api 
-model_local = "gemini"
+# model_local = "gemini"
 
 # safety_settings = [
 #   {
@@ -370,6 +366,8 @@ if "yes" == str(choise):
                 # audio_data = recognizer.listen_in_background(source)# listen'dan devşirdik
 
             # Ses verisini metne cevir
+            # faster whisper kullanımı için audio wav olarak kaydediliyior. ardından wav_to_text ile text çıkarılıyor
+
 
             wake_audio_path = 'wake_detect.wav'
             with open(wake_audio_path, 'wb') as f:
@@ -383,8 +381,8 @@ if "yes" == str(choise):
             # user_input = recognizer.recognize_google(audio_data)
             print('\033[94m'+"Kullanici Girdisi:", user_input)
             
-            ai_name = "jarvis"
-            # ai_name = "david"
+            ai_name = wake_word
+            # ai_name = "jarvis"
             kapat=1
             if ai_name in user_input.lower():
 

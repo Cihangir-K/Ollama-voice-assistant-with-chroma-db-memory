@@ -78,6 +78,17 @@
         "model": "llama3:instruct",
         "base_url": "http://localhost:11434/v1",
         "api_key": "ollama"
+    },
+    {
+        "model": "dolphin-llama3",
+        "base_url": "http://localhost:11434/v1",
+        "api_key": "ollama"
     }
 
+
+
+    
+
 ]
+
+
